@@ -1,27 +1,25 @@
   {
     "name": "Screenshot Extension",
     "version": "1.0",
-    "description": "Use this extension to capture the content on the webpage displayed",
+    "description": "Use this extension to capture the visible content on the webpage displayed",
     "manifest_version": 2,
 
 	"permissions": ["activeTab","tabs"],
 
-      "background": {
+  "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
 
-    "browser_action": {
-
-    },
-
-    "page_action": {
+  "browser_action": {
       "default_icon": {
         "16": "images/icon16.png",
         "32": "images/icon32.png",
         "48": "images/icon48.png",
         "128": "images/icon128.png"
-      }
+      },
+
+      "default_popup" : "popup.html"
     },
 
     "icons": {
