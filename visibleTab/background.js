@@ -33,7 +33,7 @@
 	                screenshot.saveScreenshot();
 	            }); 
 	        });
-	    }
+      }
 	};
 
 screenshot.init();
