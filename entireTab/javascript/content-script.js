@@ -61,6 +61,16 @@ chrome.runtime.onMessage.addListener(function (request, sender, callback) {
 
 		case "resetPage":
 			resetPage(request.originalParams);
+			
+			var successEl = document.createElement("div");
+
+			successEl.innerHTML = "<div style='position: absolute; top: 10px; right: 10px; z-index: 9999; padding: 8px; background-color: #32a84c; border: 1px solid #054d1d; border-radius: 2px; font-size: 12px; line-height: 16px; transition: opacity .3s linear;'>Screenshot captured!</div>";
+			document.body.appendChild(successEl);
+
+			setTimeout(function () {
+				successEl.firstChild.style.opacity = 0;
+			}, 4000);
+
 			break;
 
 		case "showError":
