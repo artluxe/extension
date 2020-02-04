@@ -71,13 +71,20 @@ function _displayCapture(filenames, index) {
             resultWindowId = win.id;
         });
     } else {
-        chrome.tabs.create({
+
+            var d8 = new Date();
+            var link = document.createElement('a');
+            link.download = ("Chrome Screenshot on " + d8 + ".png");
+            link.href = filename;
+            link.click();
+
+/*        chrome.tabs.create({
             url: filename,
             active: last,
             windowId: resultWindowId,
             openerTabId: currentTab.id,
             index: (currentTab.incognito ? 0 : currentTab.index) + 1 + index
-        });
+        });*/
     }
 
     if (!last) {
