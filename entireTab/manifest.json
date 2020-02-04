@@ -9,20 +9,24 @@
 		"48": "images/icon-48.png",
 		"128": "images/icon-128.png"
 	},
+
 	"background": {
 		"scripts": [
 			"javascript/background.js"
 		]
 	},
+
 	"content_scripts": [
 		{
 			"matches": ["<all_urls>"],
 			"js": ["javascript/content-script.js"]
 		}
 	],
+
 	"permissions": [
         "activeTab",
-		"tabs"
+		"tabs", 
+		"<all_urls>"
 	],
 
 	"browser_action": {

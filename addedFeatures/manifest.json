@@ -1,0 +1,27 @@
+{
+  "name": "Full Page Screen Capture",
+  "version": "1.0.1",
+  "manifest_version": 2,
+  "description": "Screen capture your current page in entirety and reliably!",
+  
+  "browser_action": {
+    "default_icon": "Artluxe_logo_19.png",
+    "default_popup": "popup.html"
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+P"
+      }
+    }
+  },
+
+  "permissions": [ "activeTab", "storage", "unlimitedStorage" ],
+  
+  "icons": {
+    "16": "Artluxe_logo_16.png",
+    "48": "Artluxe_logo_48.png",
+    "128": "Artluxe_logo_128.png"
+  }
+}
