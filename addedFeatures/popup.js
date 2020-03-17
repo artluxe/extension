@@ -74,7 +74,7 @@ function _displayCapture(filenames, index) {
 
             var d8 = new Date();
             var link = document.createElement('a');
-            link.download = ("Chrome Screenshot on " + d8 + ".png");
+            link.download = ("Artluxe Screenshot on " + d8 + ".png");
             link.href = filename;
             link.click();
 
@@ -127,3 +127,4 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
     CaptureAPI.captureToFiles(tab, filename, displayCaptures,
                               errorHandler, progress, splitnotifier);
 });
+

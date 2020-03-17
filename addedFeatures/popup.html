@@ -7,8 +7,8 @@
       <style>
         body {
             font-family: "Source San Pro", Helvetica, sans-serif;
-            font-size:12px;
-            line-height: 16px;
+            font-size:14px;
+            line-height: 18px;
             color: black;
             font-style: normal;
         }
@@ -27,11 +27,12 @@
         a:active { color: #000; }
 
         #wrap {
-            width: 300px;
+            width: 900px;
+            height: 10px;
             padding-top: 9px;
             font-size: 12px;
-            background-color: #6a31a6;
-            color: #e8e8e8;
+            background-color: white;
+            color: #585858;
         }
 
         #wrap>div { display: none; }
@@ -39,72 +40,74 @@
 
         #loading .loader {
             position: relative;
-            height: 9px;
-            border-top:12px;
+            height: 5px;
+            border-top:40px;
 
         }
 
         #loading .bar {
             position: absolute;
-            top: -21px;
+            /* top: -21px; */
+            top: 90px;
             left: 0;
-            height: 30px;
+            height: 10px;
             width: 0%;
-            background: #3ab54b url(Artluxe_logo_24.png) scroll no-repeat center right;
+            background: #3ab54b;
         }
         p { word-wrap: break-word; }
 
         .warning {
             margin-top: 1em;
-            color: #facb46;
+            color: grey;
             font-style: italic;
             font-weight: bold;
         }
         .error {
             margin-top: 1em;
             font-weight: bold;
-            color: #f31467;
+            color: grey;
         }
         .error a {
             color: #f75;
         }
+
       </style>
   </head>
 
   <body>
-      <div id="wrap">
-          <div id="loading">
-              <div class="loader"><div class="bar" id="bar"></div></div>
-              <div class="clr">
-                  <br>
-                  <p>
-                      Screen capture in progress, your finished image will open in a
-                      new window once completed. Please wait for the progress bar to
-                      finish.
-                  </p>
-              </div>
-          </div>
-          <div id="split-image" class="warning">
-              Note: your page is too large for the Chrome browser to capture as
-              one image. It will be split into <span id="screenshot-count">multiple</span>
-              images.
-          </div>
-          <div id="invalid" class="error">
-              Full Page Screen Capture cannot be run on this type of URL
-              because of Google Chrome Web Store policies. Try
-              another page on the web.
-          </div>
-          <div id="uh-oh" class="error">
-              Uh oh, something went wrong! Try reloading the page,
-              verifying javascript is enabled,
-              and running this again.
-              <br><br>
-              If the problem persists, please report the error in the
-              <a href="https://chrome.google.com/webstore/support/fdpohaocaechififmbbbbbknoalclacl?hl=en&gl=US#bug">Chrome webstore</a>.
-              Please include the URL you tried it on and the
-              version of Chrome.
-          </div>
-      </div>
+    <div id="wrap">
+      <img src=Artluxe_logo_128.png style="height: 60px;"></img>
+      <p style="text-align: center;">
+          Screen capture in progress, your finished image will open in a
+          new window once completed.</p>
+          <p style="text-align: center;"> Please wait for the capture to finish.
+      </p>
+        <div id="loading">
+            <div class="loader"><div class="bar" id="bar"></div></div>
+            <div class="clr">
+                <br>
+            </div>
+        </div>
+        <div id="split-image" class="warning">
+            Note: your page is too large for the Chrome browser to capture as
+            one image. It will be split into <span id="screenshot-count">multiple</span>
+            images.
+        </div>
+        <div id="invalid" class="error">
+            Full Page Screen Capture cannot be run on this type of URL
+            because of Google Chrome Web Store policies. Try
+            another page on the web.
+        </div>
+        <div id="uh-oh" class="error">
+            Uh oh, something went wrong! Try reloading the page,
+            and running this again.
+            <br><br>
+            If the problem persists, please report the error in the
+            <a href="https://chrome.google.com/webstore/support/fdpohaocaechififmbbbbbknoalclacl?hl=en&gl=US#bug">Chrome webstore</a>.
+            Please include the URL you tried it on and the
+            version of Chrome.
+        </div>
+        </div>
 
       <!-- JavaScript and HTML must be in separate files for security. -->
       <script src="api.js"></script>

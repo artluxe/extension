@@ -10,7 +10,7 @@ window.CaptureAPI = (function() {
     // URL Matching test - to verify we can talk to this URL
     //
 
-    var matches = ['http://*/*', 'https://*/*', 'ftp://*/*', 'file://*/*'],
+    var matches = ['http://*/*', 'https://*/*', 'ftp://*/*', 'file://*/*', '*://*/*'],
         noMatches = [/^https?:\/\/chrome.google.com\/.*$/];
 
     function isValidUrl(url) {
@@ -259,6 +259,8 @@ window.CaptureAPI = (function() {
                 return false;
             }
         });
+
+
 
         chrome.tabs.executeScript(tab.id, {file: 'page.js'}, function() {
             if (timedOut) {

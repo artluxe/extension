@@ -1,7 +1,137 @@
 
-var CAPTURE_DELAY = 150;
+var CAPTURE_DELAY = 50;
+
+// if (document.readyState === 'ready' || document.readyState === 'complete') {
+//     console.log('ready');
+//     killStickys();
+//     onMessage();
+//   } else {
+//     console.error('Waiting for all images to fully load');
+//     document.onreadystatechange = function () {
+//       if (document.readyState == "complete") {
+//         console.log("now I'm ready");
+//         killStickys();
+//         onMessage();
+//       }
+//     }
+//   }
+
+// var i, elements = document.querySelectorAll('body *');
+// // 1-4 regoarts, 5. artsy, 
+// var headerNav = document.querySelectorAll('.navigation, .header-trigger, .user-menu-wrapper, .search-results-overlay, #main-layout-header')
+
+// console.log(headerNav)
+
+// for (i = 0; i < headerNav.length; i++) {
+//     headerNav[i].style.position = "relative";
+//   }
+    // for (i = 0; i < elements.length; i++) {
+    //   if (getComputedStyle(elements[i]).position === 'fixed') {
+    //     console.log(elements[i])
+// //         elements[i].parentNode.removeChild(elements[i]);
+        
+//       }
+//       console.log("Killed stickys")
+//     }
+
+console.log(window.location.hostname)
+
+// Remove specific sticky id or classes
+if (window.location.hostname == 'www.ragoarts.com') {
+    var toRemove = document.querySelectorAll('#chatlio-widget-container')
+
+    for (i = 0; i < toRemove.length; i++) {
+        console.log(toRemove);
+        toRemove[i].parentNode.removeChild(toRemove[i]);
+    };
+    var screenshot = {
+        content : document.createElement("canvas"),
+        data : '',
+  
+       init : function() {
+          this.initEvents();
+        },
+  
+       saveScreenshot : function() {
+          var image = new Image();
+          image.onload = function() {
+                var canvas = screenshot.content;
+                canvas.width = image.width;
+                canvas.height = image.height;
+                
+                var context = canvas.getContext("2d");
+                context.drawImage(image, 0, 0);
+  
+              // save the image
+              var link = document.createElement('a');
+              link.download = "download.png";
+              link.href = screenshot.content.toDataURL();
+              link.click();
+              screenshot.data = '';
+              };
+          image.src = screenshot.data; 
+        },
+  
+      initEvents : function() {
+          window.addEventListener ('click', function() {
+              chrome.tabs.captureVisibleTab(null, {format : "png"}, function(data) {
+                    screenshot.data = data;
+                    screenshot.saveScreenshot();
+                }); 
+            });
+          }
+      };
+  
+  screenshot.init();
+
+}
+
+// To Modify 
+
+if (window.location.hostname == 'www.phillips.com') {
+    try {
+    let lotInfo = document.querySelectorAll('.lot-information');
+    let location = document.querySelectorAll('.page-controls');
+    console.log(lotInfo)
+    console.log(location)
+    let clone = lotInfo.firstElementChild.cloneNode(true);
+    location.appendChild(clone);
+    lotInfo.className = 'remove';
+    } catch(err) {
+        console.log("skip removing")
+    }
+};
+
+if (window.location.hostname == 'www.sothebys.com') {
+    try {
+    var toEdit = document.getElementsByClassName('col-xs-12 col-sm-12 col-md-4 col-lg-4 css-1em73ry')
+    toEdit[0].className = 'col-xs-12 col-sm-12 col-md-4 col-lg-4';
+    } catch(err) {
+    console.log("skip sothebys")
+    }
+
+
+};
+
+
+var toRemove = document.querySelectorAll('.auction-grid, #cookies_banner, .block-no-access, .intercom-app, .scrollTop, .clickScroll, .back-to-top, .button-go-up, .remove')
+
+for (i = 0; i < toRemove.length; i++) {
+    console.log(toRemove);
+    toRemove[i].parentNode.removeChild(toRemove[i]);
+};
+
+// If bidsquare, remove all stickys
+
+
+
+
+// };
+
+
 
 function onMessage(data, sender, callback) {
+    
     if (data.msg === 'scrollPage') {
         getPositions(callback);
         return true;
@@ -17,9 +147,11 @@ if (!window.hasScreenCapturePage) {
     chrome.runtime.onMessage.addListener(onMessage);
 }
 
+
 function max(nums) {
     return Math.max.apply(Math, nums.filter(function(x) { return x; }));
 }
+    
 
 function getPositions(callback) {
 
