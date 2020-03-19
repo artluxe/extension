@@ -2,7 +2,7 @@
 <html>
   <head>
       <meta charset=utf-8>
-      <title>Full page screen catpure</title>
+      <title> Artluxe - Full page screen catpure</title>
       <!-- there are rendering bugs when styles aren't inline... -->
       <style>
         body {
@@ -26,8 +26,23 @@
         a:hover { color: #facb46; }
         a:active { color: #000; }
 
+        #close{
+            outline: none;
+            background: none;
+            border: none;
+        }
+
+        #topspacer{
+            width: 600px;
+            height: 1px;
+            padding-top: 9px;
+            background-color: white;
+            text-align: right;
+            color: #585858;
+        }
+
         #wrap {
-            width: 900px;
+            width: 600px;
             height: 10px;
             padding-top: 9px;
             font-size: 12px;
@@ -37,6 +52,7 @@
 
         #wrap>div { display: none; }
         #wrap>#loading { display: block; }
+        #wrap>#page-title{ display: block; }
 
         #loading .loader {
             position: relative;
@@ -73,10 +89,23 @@
 
       </style>
   </head>
-
   <body>
+    <div id="topspacer" >
+        <!-- <button id="close" onclick="closePopup()">
+        <svg  xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+            <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+        </button> -->
+    </div>
+    <div id="page-title" > 
+        La la la
+    </div>
     <div id="wrap">
-      <img src=Artluxe_logo_128.png style="height: 60px;"></img>
+        <img src=Artluxe_logo_128.png style="height: 60px;"></img>
+      <!-- <div class="text-right"> -->
+    
+        <!-- </div> -->
       <p style="text-align: center;">
           Screen capture in progress, your finished image will open in a
           new window once completed.</p>
@@ -108,7 +137,8 @@
             version of Chrome.
         </div>
         </div>
-
+        
+        
       <!-- JavaScript and HTML must be in separate files for security. -->
       <script src="api.js"></script>
       <script src="popup.js"></script>

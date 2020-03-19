@@ -110,24 +110,66 @@ if (window.location.hostname == 'www.sothebys.com') {
     console.log("skip sothebys")
     }
 
-
 };
 
+if (['bidtoart.com', 'mearto.com', 'www.ebth.com', 'www.askart.com', 'www.lotsearch.net',
+    'nyshowplace.com'].indexOf(window.location.hostname) >= 0)  {
+    var i, elements = document.querySelectorAll('body *');
 
-var toRemove = document.querySelectorAll('.auction-grid, #cookies_banner, .block-no-access, .intercom-app, .scrollTop, .clickScroll, .back-to-top, .button-go-up, .remove')
+    for (i = 0; i < elements.length; i++) {
+        if (getComputedStyle(elements[i]).position === 'fixed') {
+        console.log(elements[i])
+        if (elements[i].id !== 'header') {
+        elements[i].parentNode.removeChild(elements[i]);
+        }
+
+      }
+    };
+    
+    
+};
+
+    var website = window.location.hostname.split('.')
+    if (website.length == 3) {
+        websiteName = website[1];
+    } else {
+        websiteName = website[2];
+    };
+
+    
+
+
+    localStorage.setItem('Website', window.location.hostname)
+    localStorage.setItem('Title', document.title)
+    localStorage.setItem('URL', window.location.href)
+    localStorage.setItem('Date Accessed', Date())
+
+    console.log(localStorage.getItem('Website'));
+    console.log(localStorage.getItem('Title'));
+    console.log(localStorage.getItem('URL'))
+    console.log(localStorage.getItem('Date Accessed'))
+
+    var name = window.location.href.split('?')[0].split('#')[0];
+    if (name) {
+        name = name
+            .replace(/^https?:\/\//, '')
+            .replace(/[^A-z0-9]+/g, '-')
+            .replace(/-+/g, '-')
+            .replace(/^[_\-]+/, '')
+            .replace(/[_\-]+$/, '');
+        name = '-' + name;
+    } else {
+        name = '';
+    }
+    console.log('screencapture' + name + '-' + Date.now() + '.png');
+
+
+var toRemove = document.querySelectorAll('.auction-grid, #cookies_banner, #cookie-consent, .block-no-access, .intercom-app, .scrollTop, .scrollup, .clickScroll, .back-to-top, #toTop, .button-go-up, .remove, .feedback-row, .olark-launch-button')
 
 for (i = 0; i < toRemove.length; i++) {
     console.log(toRemove);
     toRemove[i].parentNode.removeChild(toRemove[i]);
 };
-
-// If bidsquare, remove all stickys
-
-
-
-
-// };
-
 
 
 function onMessage(data, sender, callback) {

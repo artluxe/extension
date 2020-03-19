@@ -3,7 +3,7 @@
 	"name": "Take screenshot",
 	"version": "1.0",
 	"description": "Take screenshot of the entire web page",
-	"author": "marcin.wieprzkowicz@gmail.com, Janith K",
+	"author": "info@artluxe.co, Artluxe Inc.",
 	"icons": {
 		"16": "images/icon-16.png",
 		"48": "images/icon-48.png",
@@ -26,7 +26,8 @@
 	"permissions": [
         "activeTab",
 		"tabs", 
-		"<all_urls>"
+		"<all_urls>",
+		"storage"
 	],
 
 	"browser_action": {

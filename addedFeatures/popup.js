@@ -6,6 +6,8 @@
 // State fields
 //
 
+
+
 var currentTab, // result of chrome.tabs.query of current active tab
     resultWindowId; // window id for putting resulting images
 
@@ -36,6 +38,7 @@ function getFilename(contentURL) {
 }
 
 
+
 //
 // Capture Handlers
 //
@@ -63,7 +66,7 @@ function _displayCapture(filenames, index) {
         //
         // we have to be careful with focused too, because that will close
         // the popup.
-        chrome.windows.create({
+        chrome.windows.tab.create({
             url: filename,
             incognito: false,
             focused: last
@@ -114,6 +117,7 @@ function splitnotifier() {
 }
 
 
+
 //
 // start doing stuff immediately! - including error cases
 //
@@ -128,3 +132,12 @@ chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                               errorHandler, progress, splitnotifier);
 });
 
+// console.log(localStorage.getItem('URL'));
+// document.getElementById("page-title").innerHTML = localStorage.getItem('URL');
+
+// localStorage.getItem('Website')
+
+// chrome.storage.local.get(['Website'], function(result) {
+//     console.log('Value currently is ' + result.key);
+//     document.getElementById("page-title").innerHTML = result.key;
+//   });
